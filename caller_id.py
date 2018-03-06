@@ -4,7 +4,7 @@ from requests import post,get
 def main():
     url='https://mbasic.facebook.com/login/identify/?ctx=recover&search_attempts=1'
     data = {'email': input('Enter e-Mail or Phone: ')}
-    a = post(url,data = data)
+    a = post(url,data = data,headers = {'Cookie':'locale=en_GB'})
     r = bsoup(a.content,'lxml')
     temp = r.findAll('strong')
     res = []
